@@ -62,6 +62,7 @@ const corsOptions = {
   origin: [
     'http://localhost:8080',
     'http://localhost:3000',
+    'https://freelancehub-xi.vercel.app',
     'http://localhost:8000',
     'http://localhost:8081',
     'http://localhost:5173',
