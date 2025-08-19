@@ -30,7 +30,8 @@ const io = new Server(server, {
       'http://localhost:8000',
       'http://localhost:8081',
       'http://localhost:5173',
-        'https://freelance-fbib08qjq-maurya-15s-projects.vercel.app' // your deployed frontend
+      'https://freelance-fbib08qjq-maurya-15s-projects.vercel.app',
+      'https://freelancehub-jtjmj9us-maurya-15s-projects.vercel.app' // new deployed frontend
     ],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
@@ -66,7 +67,8 @@ const corsOptions = {
     'http://localhost:8000',
     'http://localhost:8081',
     'http://localhost:5173',
-      'https://freelance-fbib08qjq-maurya-15s-projects.vercel.app' // your deployed frontend
+    'https://freelance-fbib08qjq-maurya-15s-projects.vercel.app',
+    'https://freelancehub-jtjmj9us-maurya-15s-projects.vercel.app' // new deployed frontend
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -222,4 +224,6 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(PORT, () => {});
+server.listen(PORT, () => {
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
+});
