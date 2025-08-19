@@ -58,22 +58,14 @@ function logger(req, res, next) {
 }
 app.use(logger);
 
-// CORS options
-const corsOptions = {
-  origin: [
-    'http://localhost:8080',
-    'http://localhost:3000',
-    'https://freelancehub-xi.vercel.app',
-    'http://localhost:8000',
-    'http://localhost:8081',
-    'http://localhost:5173',
-    'https://freelance-fbib08qjq-maurya-15s-projects.vercel.app',
-    'https://freelancehub-jtjmj9us-maurya-15s-projects.vercel.app' // new deployed frontend
-  ],
+// CORS: Allow only Vercel frontend
+app.use(cors({
+  origin: 'https://freelancehub-jtjmj9us-maurya-15s-projects.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-};
-app.use(cors(corsOptions));
+}));
+// Handle preflight OPTIONS requests
+app.options('*', cors());
 
 // Multer configuration for gig uploads
 const gigUpload = multer({
