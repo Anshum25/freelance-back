@@ -99,6 +99,8 @@ app.get('/', (req, res) => {
 });
 
 // Mount all routers
+import authRouter from './routes/auth.js';
+app.use('/api/auth', authRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/messages', messagesRouter);
 app.use('/api/gigs', gigsRouter);
