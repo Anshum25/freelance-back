@@ -95,15 +95,134 @@ app.get('/', (req, res) => {
 // Mount all routers
 import authRouter from './routes/auth.js';
 app.use('/api/auth', authRouter);
+app._router.stack.forEach(r => {
+  if (r.route && r.route.path) {
+    console.log("✅ Registered route (auth):", r.route.path);
+  } else if (r.name === 'router') {
+    r.handle.stack.forEach(handler => {
+      if (handler.route) {
+        console.log("✅ Registered route (auth):", handler.route.path);
+      }
+    });
+  }
+});
+
 app.use('/api/users', usersRouter);
+app._router.stack.forEach(r => {
+  if (r.route && r.route.path) {
+    console.log("✅ Registered route (users):", r.route.path);
+  } else if (r.name === 'router') {
+    r.handle.stack.forEach(handler => {
+      if (handler.route) {
+        console.log("✅ Registered route (users):", handler.route.path);
+      }
+    });
+  }
+});
+
 app.use('/api/messages', messagesRouter);
+app._router.stack.forEach(r => {
+  if (r.route && r.route.path) {
+    console.log("✅ Registered route (messages):", r.route.path);
+  } else if (r.name === 'router') {
+    r.handle.stack.forEach(handler => {
+      if (handler.route) {
+        console.log("✅ Registered route (messages):", handler.route.path);
+      }
+    });
+  }
+});
+
 app.use('/api/gigs', gigsRouter);
+app._router.stack.forEach(r => {
+  if (r.route && r.route.path) {
+    console.log("✅ Registered route (gigs):", r.route.path);
+  } else if (r.name === 'router') {
+    r.handle.stack.forEach(handler => {
+      if (handler.route) {
+        console.log("✅ Registered route (gigs):", handler.route.path);
+      }
+    });
+  }
+});
+
 app.use('/api/orders', ordersRouter);
+app._router.stack.forEach(r => {
+  if (r.route && r.route.path) {
+    console.log("✅ Registered route (orders):", r.route.path);
+  } else if (r.name === 'router') {
+    r.handle.stack.forEach(handler => {
+      if (handler.route) {
+        console.log("✅ Registered route (orders):", handler.route.path);
+      }
+    });
+  }
+});
+
 app.use('/api/jobs', jobsRouter);
+app._router.stack.forEach(r => {
+  if (r.route && r.route.path) {
+    console.log("✅ Registered route (jobs):", r.route.path);
+  } else if (r.name === 'router') {
+    r.handle.stack.forEach(handler => {
+      if (handler.route) {
+        console.log("✅ Registered route (jobs):", handler.route.path);
+      }
+    });
+  }
+});
+
 app.use('/api/admin', adminRouter);
+app._router.stack.forEach(r => {
+  if (r.route && r.route.path) {
+    console.log("✅ Registered route (admin):", r.route.path);
+  } else if (r.name === 'router') {
+    r.handle.stack.forEach(handler => {
+      if (handler.route) {
+        console.log("✅ Registered route (admin):", handler.route.path);
+      }
+    });
+  }
+});
+
 app.use('/api/client', clientRouter);
+app._router.stack.forEach(r => {
+  if (r.route && r.route.path) {
+    console.log("✅ Registered route (client):", r.route.path);
+  } else if (r.name === 'router') {
+    r.handle.stack.forEach(handler => {
+      if (handler.route) {
+        console.log("✅ Registered route (client):", handler.route.path);
+      }
+    });
+  }
+});
+
 app.use('/api/freelancer', freelancerRouter);
+app._router.stack.forEach(r => {
+  if (r.route && r.route.path) {
+    console.log("✅ Registered route (freelancer):", r.route.path);
+  } else if (r.name === 'router') {
+    r.handle.stack.forEach(handler => {
+      if (handler.route) {
+        console.log("✅ Registered route (freelancer):", handler.route.path);
+      }
+    });
+  }
+});
+
 app.use('/api/placeholder', placeholderRoute);
+app._router.stack.forEach(r => {
+  if (r.route && r.route.path) {
+    console.log("✅ Registered route (placeholder):", r.route.path);
+  } else if (r.name === 'router') {
+    r.handle.stack.forEach(handler => {
+      if (handler.route) {
+        console.log("✅ Registered route (placeholder):", handler.route.path);
+      }
+    });
+  }
+});
 
 // Remove any remaining direct definitions of /api/activities, /api/pending-actions, and /api/admin/stats from server.js
 
