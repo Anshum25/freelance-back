@@ -100,7 +100,7 @@ app.use('/api/messages', messagesRouter);
 app.use('/api/gigs', gigsRouter);
 app.use('/api/orders', ordersRouter);
 app.use('/api/jobs', jobsRouter);
-app.use('/api', adminRouter);
+app.use('/api/admin', adminRouter);
 app.use('/api/client', clientRouter);
 app.use('/api/freelancer', freelancerRouter);
 app.use('/api/placeholder', placeholderRoute);
@@ -216,6 +216,19 @@ io.on('connection', (socket) => {
   });
 });
 
+// --- Print all registered routes for debugging ---
+app._router.stack.forEach(r => {
+  if (r.route && r.route.path) {
+    console.log("✅ Route registered:", r.route.path);
+  } else if (r.name === 'router') {
+    r.handle.stack.forEach(handler => {
+      if (handler.route) {
+        console.log("✅ Route registered:", handler.route.path);
+      }
+    });
+  }
+});
+
 server.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
