@@ -64,8 +64,8 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
-// Handle preflight OPTIONS requests
-app.options('*', cors());
+// Handle preflight OPTIONS requests for only API routes
+app.options('/api/*', cors());
 
 // Multer configuration for gig uploads
 const gigUpload = multer({
